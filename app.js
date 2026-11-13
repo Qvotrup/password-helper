@@ -60,7 +60,7 @@ lengthSlider.addEventListener('input', () => {
 const optionIds = ['lower', 'upper', 'numbers', 'symbols'];
 document.querySelector('#generate').addEventListener('click', () => {
     generatedInput.value = '';
-    generatedInput.type = 'password';
+    generatedInput.type = 'text';
 
 
     const selected = optionIds.filter(id => document.getElementById(id).checked);
@@ -79,4 +79,27 @@ document.querySelector('#generate').addEventListener('click', () => {
         alert('Could not generate password');
     }
 
+})
+
+function togglePassword(inputId) {
+    const input = document.getElementById(inputId);
+
+    if (input.type == 'password') {
+        input.type = 'text';
+    } else {
+        input.type = 'password';
+    }
+}
+
+document.getElementById('toggle-password').addEventListener('click', ()=> {
+    togglePassword('password');
+});
+
+
+document.getElementById('toggle-generated').addEventListener('click', ()=> {
+    togglePassword('generated');
+});
+
+window.addEventListener('pageshow', ()=> {
+    generatedInput.value='';
 })

@@ -17,8 +17,7 @@
     <title>Password Helper</title>
     <link rel="stylesheet" href="style.css">
     <script src="vendor/zxcvbn.js" defer></script>
-    <script src="js/generator.js" defer></script>
-    <script src="js/app.js" defer></script>
+    <script src="app.js" defer></script>
 </head>
 <body>
 <main class="container">
@@ -28,7 +27,7 @@
         <h2>Password strength checker. Powered by zxcvbn</h2>
         <label for="password">Password</label>
         <div class="input-row">
-            <input id="password" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="256" placeholder="enter password">
+            <input id="password" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="256" placeholder="enter password">
             <button id="toggle-password" type="button">Show/hide</button>
         </div>
         <p id="strength">Enter your password to check strength</p>
@@ -37,7 +36,7 @@
     <h2>Password generator</h2>
     <label for="generated">Generated password</label>
     <div class="input-row">
-        <input id="generated" type="password" autocomplete="off" spellcheck="false">
+        <input id="generated" type="text" autocomplete="off" spellcheck="false">
         <button id="toggle-generated" type="button">Show/hide</button>
     </div>
     <button id="generate" type="button">Generate password</button>
