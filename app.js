@@ -1,5 +1,6 @@
 'use strict';
 
+// password generator
 const Character_GROUPS =
     {
         lower: 'abcdefghijklmnopqrstuvwxyz',
@@ -103,3 +104,16 @@ document.getElementById('toggle-generated').addEventListener('click', ()=> {
 window.addEventListener('pageshow', ()=> {
     generatedInput.value='';
 })
+
+// password strength checker
+const passwordInput = document.getElementById('password');
+const strengthOutput = document.getElementById('strength');
+const labels = ['very weak', 'weak', 'medium', 'strong', 'very strong'];
+
+passwordInput.addEventListener('input', ()=> {
+    if (passwordInput.value == '') {
+        strengthOutput.textContent = 'Enter your password to check strength';
+    } else {
+        strengthOutput.textContent=labels[zxcvbn(passwordInput.value).score];
+    }
+});
