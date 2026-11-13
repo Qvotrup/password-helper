@@ -11,7 +11,7 @@ const Character_GROUPS =
 
 function secureIndex(max){
 if (!Number.isInteger(max) || max < 1 || max > 0x100000000) {
-    throw new rangeError('Invalid range');
+    throw new RangeError('Invalid range');
 }
 
 const buffer = new Uint32Array(1);
@@ -28,7 +28,7 @@ function generatePassword(length, selectedGroups) {
     }
 
     if (selectedGroups.length == 0) {
-        throw new rangeError('Select at least one character type');
+        throw new RangeError('Select at least one character type');
     }
 
     const groups = selectedGroups.map(key => Character_GROUPS[key]);
