@@ -10,15 +10,15 @@ const Character_GROUPS =
     };
 
 
-function secureIndex(max){
-if (!Number.isInteger(max) || max < 1 || max > 0x100000000) {
-    throw new RangeError('Invalid range');
-}
+function secureIndex(max) {
+    if (!Number.isInteger(max) || max < 1 || max > 0x100000000) {
+        throw new RangeError('Invalid range');
+    }
 
-const buffer = new Uint32Array(1);
-crypto.getRandomValues(buffer);
+    const buffer = new Uint32Array(1);
+    crypto.getRandomValues(buffer);
 
-return buffer[0] % max;
+    return buffer[0] % max;
 }
 
 function generatePassword(length, selectedGroups) {
@@ -32,7 +32,7 @@ function generatePassword(length, selectedGroups) {
 
     const groups = selectedGroups.map(key => Character_GROUPS[key]);
     const alphabet = groups.join('');
-    const chars = groups.map(group=>group[secureIndex(group.length)]);
+    const chars = groups.map(group => group[secureIndex(group.length)]);
 
     while (chars.length < length) {
         chars.push(alphabet[secureIndex(alphabet.length)]);
@@ -59,7 +59,6 @@ lengthSlider.addEventListener('input', () => {
 const optionIds = ['lower', 'upper', 'numbers', 'symbols'];
 document.querySelector('#generate').addEventListener('click', () => {
     generatedInput.value = '';
-    generatedInput.type = 'text';
 
 
     const selected = optionIds.filter(id => document.getElementById(id).checked);
@@ -82,25 +81,33 @@ document.querySelector('#generate').addEventListener('click', () => {
 
 function togglePassword(inputId) {
     const input = document.getElementById(inputId);
+    let button;
+    if (inputId == 'password') {
+        button = document.getElementById('toggle-password');
+    } else {
+        button = document.getElementById('toggle-generated')
+    }
 
     if (input.type == 'password') {
         input.type = 'text';
+        button.textContent = 'hide'
     } else {
         input.type = 'password';
+        button.textContent='show';
     }
 }
 
-document.getElementById('toggle-password').addEventListener('click', ()=> {
+document.getElementById('toggle-password').addEventListener('click', () => {
     togglePassword('password');
 });
 
 
-document.getElementById('toggle-generated').addEventListener('click', ()=> {
+document.getElementById('toggle-generated').addEventListener('click', () => {
     togglePassword('generated');
 });
 
-window.addEventListener('pageshow', ()=> {
-    generatedInput.value='';
+window.addEventListener('pageshow', () => {
+    generatedInput.value = '';
 })
 
 // password strength checker
@@ -108,15 +115,15 @@ const passwordInput = document.getElementById('password');
 const strengthOutput = document.getElementById('strength');
 const labels = ['very weak', 'weak', 'medium', 'strong', 'very strong'];
 
-passwordInput.addEventListener('input', ()=> {
+passwordInput.addEventListener('input', () => {
     if (passwordInput.value == '') {
         strengthOutput.textContent = 'Enter your password to check strength';
     } else {
-        strengthOutput.textContent=labels[zxcvbn(passwordInput.value).score];
+        strengthOutput.textContent = labels[zxcvbn(passwordInput.value).score];
     }
 });
 
-window.addEventListener('pageshow', ()=> {
-    passwordInput.value='';
+window.addEventListener('pageshow', () => {
+    passwordInput.value = '';
     strengthOutput.textContent = 'Enter your password to check strength';
 })
