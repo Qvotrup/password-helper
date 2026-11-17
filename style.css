@@ -1,26 +1,16 @@
+
 * {
     box-sizing: border-box;
     font-family: Helvetica, Arial, sans-serif;
 }
 
-
 body {
     color: #294b36;
 }
 
-.privacy-info {
-    color: #617d68;
-}
-
-#strength {
-    color: #617d68;
-}
-
 .container {
-
     text-align: center;
 }
-
 
 .tools {
     display: grid;
@@ -35,15 +25,14 @@ body {
     background-color: #e6f0e6;
     border-radius: 10px;
     padding: 10px;
+}
 
+.tools h2 {
+    margin-top: 5px;
 }
 
 .tools fieldset {
     margin-top: 20px;
-}
-
-.tools h2{
-    margin-top: 5px;
 }
 
 fieldset {
@@ -51,17 +40,11 @@ fieldset {
     padding: 0;
 }
 
-
-
-button {
-    cursor: pointer;
+.input-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
-
-input, button {
-    padding: 8px;
-
-}
-
 
 .input-wrapper {
     position: relative;
@@ -76,6 +59,14 @@ input, button {
     padding-right: 30px;
 }
 
+input, button {
+    padding: 8px;
+}
+
+button {
+    cursor: pointer;
+}
+
 .toggle-visibility {
     position: absolute;
     right: 5px;
@@ -85,18 +76,17 @@ input, button {
     background: none;
 }
 
-#length {
-    max-width: 280px;
-    width: 100%;
-    margin: 0;
-}
-
-
 .length-control {
     display: flex;
     text-align: left;
     max-width: 450px;
     gap: 10px;
+}
+
+#length {
+    max-width: 280px;
+    width: 100%;
+    margin: 0;
 }
 
 .character-options {
@@ -108,11 +98,10 @@ input, button {
     gap: 6px;
 }
 
+.privacy-info {
+    color: #617d68;
+}
 
-
-
-.input-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+#strength {
+    color: #617d68;
 }
