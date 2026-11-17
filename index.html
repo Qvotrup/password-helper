@@ -30,12 +30,13 @@
             <h2>Password strength checker</h2>
             <div class="input-row">
                 <div class="input-wrapper">
-                <input id="password" type="text" autocomplete="off" autocapitalize="off" spellcheck="false"
-                       maxlength="256"
-                       placeholder="enter password">
-                <button id="toggle-password" type="button"
-                class="toggle-visibility">hide</button>
-            </div>
+                    <input id="password" type="text" autocomplete="off" autocapitalize="off" spellcheck="false"
+                           maxlength="256"
+                           placeholder="enter password">
+                    <button id="toggle-password" type="button"
+                            class="toggle-visibility">hide
+                    </button>
+                </div>
             </div>
             <p id="strength">Enter your password to check strength</p>
         </section>
@@ -44,22 +45,28 @@
             <h2>Password generator</h2>
             <div class="input-row">
                 <div class="input-wrapper">
-                <input id="generated" type="text" autocomplete="off" spellcheck="false"
-                       placeholder="generated password">
-                <button id="toggle-generated" type="button"
-                    class="toggle-visibility">hide</button>
+                    <input id="generated" type="text" autocomplete="off" spellcheck="false"
+                           placeholder="generated password">
+                    <button id="toggle-generated" type="button"
+                            class="toggle-visibility">hide
+                    </button>
                 </div>
-                <button id="generate" type="button">Generate password</button>
+                <button id="generate" type="button">Generate</button>
             </div>
+            <br>
             <fieldset>
+                <div class="length-control">
                 <label for="length">Length <span id="length-value">12</span></label>
                 <input type="range" id="length" min="8" max="24" value="12" step="1">
-                <br>
-                <label class="check"><input type="checkbox" id="lower" checked>Include lowercase letters</label>
-                <label class="check"><input type="checkbox" id="upper" checked>Include uppercase letters</label>
-                <label class="check"><input type="checkbox" id="numbers" checked>Include numbers</label>
-                <label class="check"><input type="checkbox" id="symbols" checked>Include symbols</label>
+                </div>
+                <div class="character-options">
+                    <label class="check"><input type="checkbox" id="lower" checked>Include lowercase letters</label>
+                    <label class="check"><input type="checkbox" id="numbers" checked>Include numbers</label>
+                    <label class="check"><input type="checkbox" id="upper" checked>Include uppercase letters</label>
+                    <label class="check"><input type="checkbox" id="symbols" checked>Include symbols</label>
+                </div>
             </fieldset>
+
         </section>
     </div>
 
