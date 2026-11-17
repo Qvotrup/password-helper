@@ -40,7 +40,6 @@ body {
 }
 
 fieldset {
-    border: none;
     padding: 0;
 }
 
@@ -52,6 +51,7 @@ input[type="range"] {
 .input-row {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -59,13 +59,17 @@ input[type="range"] {
     position: relative;
     flex: 1;
     max-width: 300px;
-    margin: 0 auto;
     min-width: 0;
 }
 
 .input-wrapper input {
     width: 100%;
     padding-right: 30px;
+
+}
+
+.input-wrapper input:focus {
+    outline: 2px solid #3e5a46;
 }
 
 input, button {
@@ -74,7 +78,6 @@ input, button {
 }
 
 button {
-    color: inherit;
     cursor: pointer;
 }
 
@@ -90,8 +93,11 @@ button {
 .length-control {
     display: flex;
     text-align: left;
-    max-width: 450px;
+    max-width: 460px;
     gap: 10px;
+    margin: 0 auto;
+    justify-content: center;
+
 }
 
 #length {
@@ -102,9 +108,10 @@ button {
 
 .character-options {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: max-content max-content;
+    justify-content: center;
     text-align: left;
-    max-width: 500px;
+    max-width: 300px;
     margin: 0 auto;
     gap: 6px;
 }
