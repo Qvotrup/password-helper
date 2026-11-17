@@ -18,8 +18,6 @@ if (!Number.isInteger(max) || max < 1 || max > 0x100000000) {
 const buffer = new Uint32Array(1);
 crypto.getRandomValues(buffer);
 
-// do i need to do rejection sampling? check up on modulo bias
-
 return buffer[0] % max;
 }
 
@@ -117,3 +115,8 @@ passwordInput.addEventListener('input', ()=> {
         strengthOutput.textContent=labels[zxcvbn(passwordInput.value).score];
     }
 });
+
+window.addEventListener('pageshow', ()=> {
+    passwordInput.value='';
+    strengthOutput.textContent = 'Enter your password to check strength';
+})
