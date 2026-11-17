@@ -1,13 +1,20 @@
-<!--
-usual readme stuff, how to use, etc
 
-limitations/safety issues
+# Password Helper
+A simple browser-based app for checking the strength of a password, and generating random passwords.
+To try it out, click [here] <!-- (add link to deployment) -->
 
-zxcvbn is an old library, last updates 10ish years ago
+## Technologies
+* Vanilla HTML, JavaScript, CSS
+* zxcvbn library
+* Web Crypto API
 
-although everything is handled locally in browser(no backend), this does not protect you against
-malicious browser extensions, malware, or people looking over your shoulder
-password might be temporarily saved in browser memory? read up on this!
+## Security & limitations
+* Everything is handled locally and in-browser - your password never leaves your device
+* Password generation by using Crypto.getRandomValues() from Web Crypto API ensures a pseudo-random generation that cannot be predicted based on previous outputs.
+* zxcvbn is an older library - the latest release (ver. 4.4.2) was from feb 2017.
+* Keep in mind, that the secure generation does not protect against malicious browser extensions, malware, or people looking over your shoulder.
 
-do I have to give credit to the zxcvbn library? check up on what the MIT license means
--->
+## Credits
+The password strength estimation is powered by zxcvbn, a library developed by Dropbox and available under the MIT License.
+
+
