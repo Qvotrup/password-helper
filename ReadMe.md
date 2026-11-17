@@ -1,7 +1,7 @@
 
 # Password Helper
 A simple browser-based app for checking the strength of a password, and generating random passwords. 
-To try it out, click https://qvotrup.github.io/password-helper/
+To try it out, go to https://qvotrup.github.io/password-helper/
 
 ## Technologies
 * Vanilla HTML, JavaScript, CSS
